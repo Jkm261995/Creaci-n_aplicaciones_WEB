@@ -1,0 +1,150 @@
+/* ============================================
+   RESET BÁSICO
+   Elimina márgenes que el navegador pone por defecto
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* El padding no agranda las cajas */
+}
+
+/* ============================================
+   CUERPO DE LA PÁGINA
+   Centra la calculadora y pone el fondo degradado
+   ============================================ */
+body {
+    display: flex;              /* Activa Flexbox para centrar */
+    justify-content: center;    /* Centrado horizontal */
+    align-items: center;        /* Centrado vertical */
+    min-height: 100vh;          /* Altura completa de la ventana */
+    background: linear-gradient(135deg, #667eea, #764ba2); /* Degradado morado */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL (efecto vidrio)
+   ============================================ */
+.calculadora {
+    width: 340px;                          /* Ancho fijo tipo calculadora real */
+    padding: 20px;                         /* Espacio interno */
+    background: rgba(255, 255, 255, 0.12); /* Fondo semitransparente */
+    backdrop-filter: blur(12px);           /* Efecto vidrio esmerilado */
+    border-radius: 20px;                   /* Esquinas redondeadas */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* Sombra de profundidad */
+}
+
+/* ============================================
+   PANTALLA DONDE SE VEN LOS NÚMEROS
+   ============================================ */
+#display {
+    width: 100%;            /* Ocupa todo el ancho disponible */
+    height: 90px;           /* Altura de la pantalla */
+    padding: 15px;          /* Espacio interno */
+    text-align: right;      /* Números alineados a la derecha, como calculadora real */
+    font-size: 2rem;        /* Tamaño de letra grande */
+    color: white;           /* Texto blanco */
+    background: #111827;    /* Fondo oscuro tipo pantalla */
+    border: none;           /* Sin borde por defecto */
+    border-radius: 12px;    /* Esquinas redondeadas */
+    margin-bottom: 15px;    /* Separación con los botones */
+    outline: none;          /* Sin contorno al hacer clic */
+}
+
+/* Color gris del "0" inicial cuando la pantalla está vacía */
+#display::placeholder {
+    color: #9ca3af;
+}
+
+/* ============================================
+   CUADRÍCULA DE BOTONES (CSS Grid)
+   ============================================ */
+.botones {
+    display: grid;                            /* Activa el modo cuadrícula */
+    grid-template-columns: repeat(4, 1fr);    /* 4 columnas iguales */
+    gap: 10px;                                /* Espacio entre botones */
+}
+
+/* ============================================
+   ESTILO GENERAL DE TODOS LOS BOTONES
+   ============================================ */
+.btn {
+    height: 65px;                 /* Altura uniforme */
+    border-radius: 14px;          /* Esquinas redondeadas */
+    border: none;                 /* Sin borde */
+    font-size: 1.3rem;            /* Tamaño del símbolo */
+    cursor: pointer;              /* Cursor de manita al pasar el mouse */
+    transition: all 0.2s ease;    /* Animación suave en hover y clic */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Efecto al pasar el mouse: el botón "flota" */
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.22);
+}
+
+/* Efecto al hacer clic: el botón se "hunde" */
+.btn:active {
+    transform: scale(0.96);
+}
+
+/* ============================================
+   BOTONES DE NÚMEROS (blancos)
+   ============================================ */
+.btn-numero {
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+.btn-numero:hover {
+    background: white;
+}
+
+/* El cero ocupa 2 columnas de la cuadrícula */
+.btn-cero {
+    grid-column: span 2;
+}
+
+/* ============================================
+   BOTONES DE OPERADORES (naranjas)
+   ============================================ */
+.btn-operador {
+    background: #fb923c;
+    color: white;
+}
+
+.btn-operador:hover {
+    background: #fdba74;
+}
+
+/* ============================================
+   BOTÓN IGUAL (verde, para destacar)
+   ============================================ */
+.btn-igual {
+    background: #22c55e;
+    color: white;
+}
+
+.btn-igual:hover {
+    background: #4ade80;
+}
+
+/* ============================================
+   DISEÑO RESPONSIVO (celulares pequeños)
+   ============================================ */
+@media (max-width: 400px) {
+    .calculadora {
+        width: 90%;       /* Se adapta al ancho del celular */
+        padding: 15px;
+    }
+
+    .btn {
+        height: 58px;     /* Botones un poco más pequeños */
+        font-size: 1.1rem;
+    }
+
+    #display {
+        height: 75px;
+        font-size: 1.7rem;
+    }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Codificación de caracteres: permite usar acentos y símbolos como ñ, ×, ⌫ -->
+    <meta charset="UTF-8">
+
+    <!-- Hace que el diseño se adapte a celulares, tablets y PC -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>Calculadora Web | Actividad 3</title>
+
+    <!-- CONEXIÓN CON EL CSS: importa todo el diseño visual
+         que vive en el archivo styles.css -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ==========================================
+         CONTENEDOR PRINCIPAL DE LA CALCULADORA
+         ========================================== -->
+    <div class="calculadora">
+
+        <!-- PANTALLA: muestra los números y el resultado.
+             readonly = el usuario no puede escribir con el teclado
+             directamente, solo los botones y el teclado físico
+             (programado en JS) pueden modificarla -->
+        <input type="text" id="display" readonly placeholder="0"
+               aria-label="Pantalla de la calculadora">
+
+        <!-- PANEL DE BOTONES: se organiza en cuadrícula con CSS Grid -->
+        <div class="botones">
+
+            <!-- Fila 1: limpiar todo, borrar último, porcentaje, división -->
+            <button class="btn btn-operador" onclick="limpiar()">C</button>
+            <button class="btn btn-operador" onclick="borrar()">⌫</button>
+            <button class="btn btn-operador" onclick="agregarOperador('%')">%</button>
+            <button class="btn btn-operador" onclick="agregarOperador('/')">÷</button>
+
+            <!-- Fila 2: números 7-8-9 y multiplicación -->
+            <button class="btn btn-numero" onclick="agregarNumero('7')">7</button>
+            <button class="btn btn-numero" onclick="agregarNumero('8')">8</button>
+            <button class="btn btn-numero" onclick="agregarNumero('9')">9</button>
+            <button class="btn btn-operador" onclick="agregarOperador('*')">×</button>
+
+            <!-- Fila 3: números 4-5-6 y resta -->
+            <button class="btn btn-numero" onclick="agregarNumero('4')">4</button>
+            <button class="btn btn-numero" onclick="agregarNumero('5')">5</button>
+            <button class="btn btn-numero" onclick="agregarNumero('6')">6</button>
+            <button class="btn btn-operador" onclick="agregarOperador('-')">−</button>
+
+            <!-- Fila 4: números 1-2-3 y suma -->
+            <button class="btn btn-numero" onclick="agregarNumero('1')">1</button>
+            <button class="btn btn-numero" onclick="agregarNumero('2')">2</button>
+            <button class="btn btn-numero" onclick="agregarNumero('3')">3</button>
+            <button class="btn btn-operador" onclick="agregarOperador('+')">+</button>
+
+            <!-- Fila 5: el cero ocupa 2 columnas (clase btn-cero),
+                 punto decimal y botón de igual -->
+            <button class="btn btn-numero btn-cero" onclick="agregarNumero('0')">0</button>
+            <button class="btn btn-numero" onclick="agregarNumero('.')">.</button>
+            <button class="btn btn-igual" onclick="calcular()">=</button>
+        </div>
+    </div>
+
+    <!-- CONEXIÓN CON EL JAVASCRIPT: importa el "cerebro" de la calculadora.
+         Se coloca AL FINAL del body para que el HTML cargue primero
+         y las funciones encuentren los elementos ya existentes -->
+    <script src="script.js"></script>
+</body>
+</html>
