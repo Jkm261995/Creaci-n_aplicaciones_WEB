@@ -23,3 +23,6 @@ Calculadora funcional desarrollada con HTML, CSS y JavaScript puro.
 ## 👩‍💻 Autora
 
 Mira — Actividad 3, Aplicaciones Web
+## 🌍 Proyecto en línea
+
+[🧮 Ver la Calculadora Web funcionando](https://jkm261995.github.io/Creaci-n_aplicaciones_WEB/Actividad-3-calculadora/)
