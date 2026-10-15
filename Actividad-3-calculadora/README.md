@@ -20,7 +20,7 @@ Calculadora funcional desarrollada con HTML, CSS y JavaScript puro.
 1. Clona o descarga el repositorio
 2. Abre `index.html` en tu navegador
 
-## 👩‍💻 Autora
+##  Autor
 
 Mira — Actividad 3, Aplicaciones Web
 ## 🌍 Proyecto en línea
